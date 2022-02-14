@@ -35,10 +35,15 @@ class FirstFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Here call to partition fun and returns final result.
         val finalLists = firstViewModel.partition(list1, list2, ::provideRealNumber)
         binding.textviewFirst.text = "Result is  $finalLists"
     }
 
+    /**
+     *  A function that takes a single integer as an argument and returns a real number.
+     *  @param x : It's an indices from List.
+     */
     private fun provideRealNumber(x: Int): Int {
         return x * 2
     }
